@@ -387,63 +387,60 @@ footer a,
     const sosneedWarning='⚠️ Cepat atau lambatnya proses tergantung server karena order tidak diproses manual. Jangan mengubah akun atau konten selama proses.<br>⚠️ Pastikan username, link akun, konten, atau channel valid, tidak typo, dan tidak diprivat.<br>⚠️ Data yang salah atau akun privat dapat membuat order otomatis dibatalkan tanpa refund.<br>⚠️ Memprivat akun atau mengedit konten saat proses berjalan dapat menghentikan proses dan sisa uang tidak direfund.';
     const productPlans={
       'Netflix':{logo:'https://cdn.simpleicons.org/netflix/ffffff',color:'#e50914',groups:[
-        {name:'Sharing 1P 1U 🌷',items:[['1 hari','Rp6.000'],['3 hari','Rp12.000'],['1 minggu','Rp18.000'],['1 bulan','Rp45.000'],['2 bulan','Rp85.000'],['3 bulan','Rp125.000']]},
-        {name:'Sharing 1P 2U 🌷',items:[['1 hari','Rp5.000'],['3 hari','Rp8.000'],['1 minggu','Rp15.000'],['1 bulan','Rp30.000'],['2 bulan','Rp55.000'],['3 bulan','Rp85.000']]},
-        {name:'Semi Private 🌷',items:[['1 bulan','Rp55.000']]},
-        {name:'Private 🌷',items:[['1 bulan','Rp185.000']]}
+        {name:'Sharing 1P 1U 🌷',items:[['1 hari','Rp5.000'],['3 hari','Rp10.000'],['1 minggu','Rp15.000'],['1 bulan','Rp38.000'],['2 bulan','Rp75.000'],['3 bulan','Rp120.000']]},
+        {name:'Sharing 1P 2U 🌷',items:[['3 hari','Rp8.000'],['1 minggu','Rp12.000'],['1 bulan','Rp25.000'],['2 bulan','Rp38.000'],['3 bulan','Rp58.000']]},
+        {name:'Semi Private 🌷',items:[['1 bulan','Rp45.000']]},
+        {name:'Private 🌷',items:[['1 bulan','Rp177.000']]}
       ],note:'⚠️ Wajib isi form Netflix, cek ketentuan penggunaan, dan janjian dengan admin jika membutuhkan OTP karena household.'},
       'VIU':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://viu.com',color:'#ffb400',groups:[
-        {name:'Private Unlimited 🌷',items:[['1 hari','Rp3.000'],['3 hari','Rp6.000'],['1 minggu','Rp10.000'],['1 bulan','Rp15.000'],['3 bulan','Rp25.000'],['6 bulan','Rp40.000'],['1 tahun','Rp50.000']]}
+        {name:'Private Unlimited 🌷',items:[['1 bulan','Rp6.000'],['3 bulan','Rp16.000'],['6 bulan','Rp30.000'],['1 tahun','Rp40.000']]}
       ]},
       'Disney+':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://disneyplus.com',color:'#113ccf',groups:[
-        {name:'Premium Plan 🌷',items:[['1 hari','Rp8.000'],['3 hari','Rp12.000'],['1 minggu','Rp20.000'],['1 bulan (6 user)','Rp35.000']]}
+        {name:'Premium Plan 🌷',items:[['1 hari','Rp5.000'],['3 hari','Rp10.000'],['1 minggu','Rp17.000'],['1 bulan (6 user)','Rp32.000']]}
       ]},
       'iQIYI':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://iq.com',color:'#00c853',groups:[
-        {name:'Sharing Standard 🌷',items:[['1 hari','Rp4.000'],['3 hari','Rp8.000'],['1 bulan','Rp15.000'],['3 bulan','Rp30.000'],['1 tahun','Rp40.000']]},
-        {name:'Sharing Premium 🌷',items:[['1 minggu','Rp15.000'],['1 bulan','Rp25.000'],['3 bulan','Rp40.000'],['1 tahun','Rp55.000']]},
-        {name:'Private 🌷',items:[['1 bulan Standard','Rp40.000'],['1 bulan Premium','Rp45.000']]}
+        {name:'Sharing Standard 🌷',items:[['1 hari','Rp4.000'],['3 hari','Rp6.000'],['1 bulan','Rp10.000']]},
+        {name:'Sharing Premium 🌷',items:[['1 bulan','Rp13.000']]}
       ]},
-      'Amazon Prime':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://primevideo.com',color:'#00a8e1',groups:[
-        {name:'Sharing 🌷',items:[['1 hari','Rp4.000'],['3 hari','Rp8.000'],['1 minggu','Rp12.000'],['1 bulan','Rp20.000']]},
-        {name:'Private 🌷',items:[['1 bulan','Rp35.000']]}
+      'Amazon Prime Vidio':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://primevideo.com',color:'#00a8e1',groups:[
+        {name:'Sharing 🌷',items:[['1 bulan (3u)','Rp12.000'],['1 bulan (4u)','Rp9.000'],['1 bulan (5u)','Rp7.000']]},
+        {name:'Private 🌷',items:[['1 bulan','Rp27.000']]}
       ]},
       'WeTV':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://wetv.vip',color:'#20c977',groups:[
-        {name:'Sharing 🌷',items:[['1 hari (6 user)','Rp5.000'],['3 hari (6 user)','Rp7.000'],['1 minggu (6 user)','Rp10.000'],['1 bulan (6 user)','Rp15.000'],['1 bulan (3 user)','Rp25.000']]},
-        {name:'Private 🌷',items:[['1 bulan','Rp40.000']]}
+        {name:'Sharing 🌷',items:[['1 hari (6 user)','Rp3.000'],['3 hari (6 user)','Rp6.000'],['1 minggu (6 user)','Rp8.000'],['1 bulan (6 user)','Rp10.000'],['1 bulan (3 user)','Rp15.000']]},
+        {name:'Private 🌷',items:[['1 bulan','Rp37.000']]}
       ]},
       'HBO Max':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://max.com',color:'#5b32e6',groups:[
-        {name:'Sharing Standard 🌷',items:[['1 hari','Rp5.000'],['3 hari','Rp8.000'],['1 minggu','Rp15.000'],['1 bulan','Rp25.000']]},
-        {name:'Private Standard 🌷',items:[['1 bulan','Rp75.000']]}
+        {name:'Sharing Standard 🌷',items:[['1 hari','Rp5.000'],['3 hari','Rp8.000'],['1 minggu','Rp13.000'],['1 bulan','Rp18.000']]},
+        {name:'Private Standard 🌷',items:[['1 bulan','Rp65.000']]}
       ]},
       'Loklok':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://loklok.com',color:'#ff7b45',groups:[
-        {name:'Sharing 🌷',items:[['1 bulan Basic','Rp27.000'],['1 bulan Standard','Rp32.000']]},
-        {name:'Private 🌷',items:[['1 bulan Basic','Rp60.000'],['1 bulan Standard','Rp80.000']]}
+        {name:'Sharing 🌷',items:[['1 bulan Basic','Rp21.000'],['1 bulan Standard','Rp23.000']]}
       ]},
       'Vidio':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://vidio.com',color:'#e21b2d',groups:[
-        {name:'All Device 🌷',items:[['1 bulan Sharing','Rp35.000'],['1 bulan Private','Rp55.000']]},
-        {name:'Mobile Only 🌷',items:[['1 bulan Sharing','Rp30.000'],['1 bulan Private','Rp40.000']]}
+        {name:'All Device 🌷',items:[['1 bulan Sharing','Rp27.000'],['1 bulan Private','Rp47.000']]},
+        {name:'Mobile Only 🌷',items:[['1 bulan Sharing','Rp20.000'],['1 bulan Private','Rp35.000']]}
       ]},
       'Canva':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://canva.com',color:'#7d2ae8',groups:[
-        {name:'Member 🌷',items:[['1 hari','Rp3.000'],['3 hari','Rp5.000'],['1 minggu','Rp7.000'],['1 bulan','Rp12.000'],['3 bulan','Rp17.000'],['6 bulan','Rp27.000'],['1 tahun','Rp37.000']]}
+        {name:'Member 🌷',items:[['1 hari','Rp1.000'],['3 hari','Rp2.000'],['1 minggu','Rp4.000'],['1 bulan','Rp8.000'],['3 bulan','Rp10.000'],['6 bulan','Rp20.000'],['1 tahun','Rp30.000']]}
       ]},
       'CapCut Pro':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://capcut.com',color:'#111111',groups:[
-        {name:'Sharing 🌷',items:[['1 minggu','Rp17.000'],['1 bulan','Rp35.000']]},
-        {name:'Private 🌷',items:[['1 minggu','Rp25.000'],['1 bulan','Rp50.000']]}
+        {name:'Sharing 🌷',items:[['1 minggu','Rp12.000'],['1 bulan','Rp28.000']]},
+        {name:'Private 🌷',items:[['1 minggu','Rp20.000'],['1 bulan','Rp50.000']]}
       ]},
       'Picsart':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://picsart.com',color:'#8b3dff',groups:[
-        {name:'Sharing 🌷',items:[['1 bulan','Rp15.000']]},
-        {name:'Private 🌷',items:[['1 bulan','Rp25.000']]}
+        {name:'Sharing 🌷',items:[['1 bulan','Rp13.000']]},
+        {name:'Private 🌷',items:[['1 bulan','Rp22.000']]}
       ]},
       'VSCO':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://vsco.co',color:'#202020',groups:[
-        {name:'Sharing Plus 🌷',items:[['1 tahun','Rp35.000']]},
-        {name:'Sharing Pro 🌷',items:[['1 tahun','Rp45.000']]}
+        {name:'Sharing ios 🌷',items:[['1 tahun','Rp25.000']]},
+        {name:'Sharing andro 🌷',items:[['1 tahun','Rp22.000']]}
       ]},
       'Alight Motion':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://alightmotion.com',color:'#19b5a5',groups:[
-        {name:'Sharing 🌷',items:[['1 bulan','Rp15.000'],['1 tahun','Rp30.000']]},
-        {name:'Private 🌷',items:[['1 bulan','Rp35.000'],['1 tahun','Rp50.000']]}
+        {name:'Private 🌷',items:[['1 tahun','Rp15.000']]}
       ]},
       'Dazz Cam':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://dazzcam.com',color:'#e96f49',groups:[
-        {name:'Lifetime 🌷',items:[['Garansi 6 bulan','Rp30.000'],['Garansi 1 tahun','Rp45.000']]}
+        {name:'Lifetime 🌷',items:[['ios','Rp150.000']]}
       ]},
       'Meitu':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://meitu.com',color:'#ff4f91',groups:[
         {name:'Private 🌷',items:[['7 hari','Rp25.000'],['1 bulan','Rp30.000']]}
@@ -453,14 +450,14 @@ footer a,
         {name:'Private 🌷',items:[['1 bulan','Rp30.000']]}
       ]},
       'Wattpad':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://wattpad.com',color:'#ff6122',groups:[
-        {name:'Sharing 🌷',items:[['1 bulan','Rp15.000'],['1 tahun','Rp35.000']]},
-        {name:'Private 🌷',items:[['1 bulan','Rp40.000']]}
+        {name:'Sharing 🌷',items:[['1 bulan','Rp10.000']]},
+        {name:'Private 🌷',items:[['1 bulan','Rp18.000']]}
       ]},
       'Zoom':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://zoom.us',color:'#2d8cff',groups:[
-        {name:'Private 🌷',items:[['100 peserta · 1 minggu','Rp45.000'],['100 peserta · 14 hari','Rp55.000'],['100 peserta · 1 bulan','Rp75.000']]}
+        {name:'Private 🌷',items:[['100 peserta · 1 minggu','Rp15.000'],['100 peserta · 14 hari','Rp25.000'],['100 peserta · 1 bulan','Rp30.000']]}
       ]},
       'Blackbox AI':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://blackbox.ai',color:'#161616',groups:[
-        {name:'Private 🌷',items:[['1 bulan','Rp35.000']]}
+        {name:'Private 🌷',items:[['1 bulan','Rp30.000']]}
       ]},
       'Scribd':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://scribd.com',color:'#1e7b4d',groups:[
         {name:'Sharing 🌷',items:[['1 bulan','Rp16.000'],['3 bulan','Rp28.000']]},
@@ -471,22 +468,23 @@ footer a,
         {name:'Family Head 🌷',items:[['1 bulan','Rp45.000']]}
       ]},
       'ChatGPT':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://chatgpt.com',color:'#10a37f',groups:[
-        {name:'Sharing 🌷',items:[['1 hari','Rp15.000'],['7 hari (5 user)','Rp30.000'],['1 bulan (8 user)','Rp40.000'],['1 bulan (5 user)','Rp55.000']]}
+        {name:'plan plus (8u)🌷',items:[['1 hari','Rp8.000'],['7 hari','Rp23.000'],['1 bulan','Rp45.000']]},
+        {name:'plan go (6u)🌷',items:[['1 hari','Rp8.000'],['7 hari','Rp19.000'],['1 bulan','Rp35.000']]}
       ]},
       'Gemini':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://gemini.google.com',color:'#4285f4',groups:[
-        {name:'Paket Gemini 🌷',items:[['1 bulan','Rp25.000']]}
+        {name:'private 🌷',items:[['1 bulan','Rp13.000'],['2 bulan','Rp23.000'],['3 bulan','Rp35.000']]}
       ]},
       'YouTube':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://youtube.com',color:'#ff0000',groups:[
-        {name:'Individual Plan 🌷',items:[['1 bulan','Rp20.000'],['3 bulan','Rp45.000']]},
-        {name:'Family Plan 🌷',items:[['1 bulan','Rp12.000'],['2 bulan','Rp20.000'],['3 bulan','Rp35.000']]}
+        {name:'Individual Plan 🌷',items:[['1 bulan','Rp18.000']]},
+        {name:'Family Plan 🌷',items:[['1 bulan','Rp9.000']]}
       ]},
       'Apple Music':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://music.apple.com',color:'#fa243c',groups:[
-        {name:'Family Plan 🌷',items:[['1 bulan','Rp23.000'],['2 bulan','Rp30.000'],['3 bulan','Rp38.000']]},
-        {name:'Individual 🌷',items:[['1 bulan','Rp30.000']]}
+        {name:'Family Plan invite🌷',items:[['1 bulan','Rp15.000'],['2 bulan','Rp18.000'],['3 bulan','Rp30.000']]},
+        {name:'Individual plan andro 🌷',items:[['1 bulan','Rp19.000']]}
       ]},
       'Spotify':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://spotify.com',color:'#1db954',groups:[
-        {name:'Family Plan 🌷',items:[['1 bulan','Rp25.000'],['2 bulan','Rp50.000'],['3 bulan','Rp70.000']]},
-        {name:'Individual Plan 🌷',items:[['1 bulan','Rp35.000'],['2 bulan','Rp55.000']]}
+        {name:'Family Plan 🌷',items:[['1 bulan','Rp23.000']]},
+        {name:'Individual Plan 🌷',items:[['1 bulan','Rp28.000']]}
       ]},
       'Robux':{logo:'https://www.google.com/s2/favicons?sz=128&domain_url=https://roblox.com',color:'#e2231a',groups:[
         {name:'Via Login 🎮',items:[['100 Robux','Rp22.000'],['160 Robux','Rp36.000'],['240 Robux','Rp50.000'],['320 Robux','Rp65.000'],['500 Robux','Rp80.000'],['800 Robux','Rp105.000'],['1.000 Robux','Rp150.000'],['1.500 Robux','Rp232.000'],['2.000 Robux','Rp310.000']],note:'⚠️ Butuh username, password, dan backup code.<br>⚠️ Proses sesuai antrean sekitar 5 menit–1 jam.'},
