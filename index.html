@@ -534,13 +534,13 @@ footer a,
       'CapCut Pro':{groups:[{name:'Private 🌷',items:[['1 minggu','Rp18.000','Rp25.000'],['1 bulan','Rp35.000','Rp50.000']]},{name:'Sharing 🌷',items:[['1 minggu','Rp12.000','Rp17.000'],['1 bulan','Rp20.000','Rp35.000']]}]},
       'YouTube':{groups:[{name:'Family Plan 🌷',items:[['1 bulan','Rp10.000','Rp12.000'],['2 bulan','Rp15.000','Rp20.000'],['3 bulan','Rp25.000','Rp35.000']]}]}
     };
-    const isFriday=new Date().getDay()===5,fridayPromoLink='https://wa.me/message/MEHOR5VQY4FQC1';
+    const isFriday=false,fridayPromoLink='';
     const grid=document.getElementById('products'),empty=document.getElementById('empty'),search=document.getElementById('search'),modal=document.getElementById('productModal'),plans=document.getElementById('modalPlans'),chosen=document.getElementById('chosenText'),modalOrder=document.getElementById('modalOrder'),modalTitle=document.getElementById('modalTitle'),modalLogo=document.getElementById('modalLogo'),cartDrawer=document.getElementById('cartDrawer'),cartItems=document.getElementById('cartItems'),cartCount=document.getElementById('cartCount'),cartNavCount=document.getElementById('cartNavCount'),cartTotal=document.getElementById('cartTotal'),checkoutBtn=document.getElementById('checkoutBtn'),cartToast=document.getElementById('cartToast');let selected='all',activeProduct='',pendingItem=null,cart=[];
     try{cart=JSON.parse(localStorage.getItem('karangel-cart')||'[]')}catch(e){cart=[]}
     const labels={streaming:'Streaming',edit:'Edit Apps',education:'Education',game:'Top Up',sosneed:'Sosneed'};
-    function render(){const q=search.value.toLowerCase().trim();const shown=products.filter(p=>(selected==='all'||p.cat===selected)&&p.name.toLowerCase().includes(q));grid.innerHTML=shown.map(p=>{const detailed=!!productPlans[p.name],hasFridayPromo=!!fridayPromos[p.name],message=encodeURIComponent(`Halo KARANGEL, saya ingin menanyakan paket ${p.name}.`);return `<article class="product ${detailed?'has-detail':''}" ${detailed?`data-detail="${p.name}" tabindex="0" role="button" aria-label="Lihat pilihan paket ${p.name}"`:''}><div class="product-top"><div class="product-logo"><img src="${p.logo}" alt="Logo ${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">${p.icon}</span></div><span class="tag">${labels[p.cat]}</span></div><h3>${p.name}</h3><p>${p.desc}</p>${hasFridayPromo?`<span class="friday-badge">${isFriday?'✨ Promo Jumat aktif':'📅 Harga khusus setiap Jumat'}</span>`:''}${detailed?'<div class="detail-hint">Klik untuk melihat semua pilihan paket</div>':''}${detailed?'<button class="order" type="button">Lihat paket & harga <b>→</b></button>':`<a class="order" href="https://wa.me/6288905005435?text=${message}" target="_blank" rel="noopener">Lihat paket <b>→</b></a>`}</article>`}).join('');empty.style.display=shown.length?'none':'block'}
+    function render(){const q=search.value.toLowerCase().trim();const shown=products.filter(p=>(selected==='all'||p.cat===selected)&&p.name.toLowerCase().includes(q));grid.innerHTML=shown.map(p=>{const detailed=!!productPlans[p.name],hasFridayPromo=!!fridayPromos[p.name],message=encodeURIComponent(`Halo KARANGEL, saya ingin menanyakan paket ${p.name}.`);return `<article class="product ${detailed?'has-detail':''}" ${detailed?`data-detail="${p.name}" tabindex="0" role="button" aria-label="Lihat pilihan paket ${p.name}"`:''}><div class="product-top"><div class="product-logo"><img src="${p.logo}" alt="Logo ${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">${p.icon}</span></div><span class="tag">${labels[p.cat]}</span></div><h3>${p.name}</h3><p>${p.desc}</p>${detailed?'<div class="detail-hint">Klik untuk melihat semua pilihan paket</div>':''}${detailed?'<button class="order" type="button">Lihat paket & harga <b>→</b></button>':`<a class="order" href="https://wa.me/6288905005435?text=${message}" target="_blank" rel="noopener">Lihat paket <b>→</b></a>`}</article>`}).join('');empty.style.display=shown.length?'none':'block'}
     function renderFridayPromo(name){const promo=fridayPromos[name];if(!promo)return'';if(!isFriday)return'<div class="friday-wrap"><div class="friday-head"><b>📅 Promo Jum\'at</b><span>Setiap Jumat</span></div><div class="friday-info">Produk ini memiliki harga khusus setiap hari Jumat. Harga promo akan muncul otomatis saat hari Jumat.<br>Kumpulkan loyalty card untuk mendapatkan aplikasi secara gratis.</div></div>';return `<div class="friday-wrap"><div class="friday-head"><b>✨ Promo Jum'at</b><span>Khusus hari ini</span></div>${promo.groups.map((group,gi)=>`<div class="plan-group"><h3 class="plan-title">${group.name}</h3><div class="options">${group.items.map(([duration,price,normal],ii)=>`<button class="option promo-option" type="button" data-promo="1" data-plan="${gi}" data-item="${ii}"><span>${duration}</span><span class="normal-price">${normal}</span><b>${price}</b></button>`).join('')}</div></div>`).join('')}<div class="friday-info">Kumpulkan loyalty card untuk mendapatkan aplikasi secara gratis.<br><a href="${fridayPromoLink}" target="_blank" rel="noopener">Hubungi WhatsApp promo ↗</a></div></div>`}
-    function openProduct(name){const data=productPlans[name];if(!data)return;activeProduct=name;pendingItem=null;modalTitle.textContent=`Paket ${name}`;modalLogo.src=data.logo;modalLogo.alt=`Logo ${name}`;modal.querySelector('.modal-logo').style.background=data.color;const promoHtml=renderFridayPromo(name),normalTitle=promoHtml?'<h3 class="plan-title">Harga normal</h3>':'';plans.innerHTML=promoHtml+normalTitle+data.groups.map((group,gi)=>`<div class="plan-group"><h3 class="plan-title">${group.name}</h3><div class="options">${group.items.map(([duration,price],ii)=>`<button class="option" type="button" data-plan="${gi}" data-item="${ii}"><span>${duration}</span><b>${price}</b></button>`).join('')}</div>${group.note?`<div class="modal-note">${group.note}</div>`:''}</div>`).join('')+(data.note?`<div class="modal-note">${data.note}</div>`:'');chosen.textContent='Belum pilih paket';modalOrder.classList.remove('ready');modal.classList.add('open');document.body.style.overflow='hidden';modal.querySelector('.modal-close').focus()}
+    function openProduct(name){const data=productPlans[name];if(!data)return;activeProduct=name;pendingItem=null;modalTitle.textContent=`Paket ${name}`;modalLogo.src=data.logo;modalLogo.alt=`Logo ${name}`;modal.querySelector('.modal-logo').style.background=data.color;const promoHtml='',normalTitle='';plans.innerHTML=data.groups.map((group,gi)=>`<div class="plan-group"><h3 class="plan-title">${group.name}</h3><div class="options">${group.items.map(([duration,price],ii)=>`<button class="option" type="button" data-plan="${gi}" data-item="${ii}"><span>${duration}</span><b>${price}</b></button>`).join('')}</div>${group.note?`<div class="modal-note">${group.note}</div>`:''}</div>`).join('')+(data.note?`<div class="modal-note">${data.note}</div>`:'');chosen.textContent='Belum pilih paket';modalOrder.classList.remove('ready');modal.classList.add('open');document.body.style.overflow='hidden';modal.querySelector('.modal-close').focus()}
     function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}
     grid.addEventListener('click',e=>{const card=e.target.closest('[data-detail]');if(card)openProduct(card.dataset.detail)});
     grid.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-detail]')){e.preventDefault();openProduct(e.target.dataset.detail)}});
@@ -595,76 +595,5 @@ footer a,
   });
 })();
 </script>
-
-
-<script>
-(function(){
-  const dayNames = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
-  const allowedDays = [1,2,3,4,6,0]; // Senin, Selasa, Rabu, Kamis, Sabtu, Minggu — Jumat tidak ikut.
-  const specialPrices=[{"brand":"NETFLIX","items":[["1P1U — 1 Hari","Rp5.000"],["1P1U — 3 Hari","Rp10.000"],["1P1U — 1 Minggu","Rp15.000"],["1P1U — 1 Bulan","Rp35.000"],["1P1U — 2 Bulan","Rp67.000"],["1P1U — 3 Bulan","Rp97.000"],["1P2U — 1 Bulan","Rp25.000"],["1P2U — 2 Bulan","Rp42.000"],["1P2U — 3 Bulan","Rp60.000"],["Semi Private — 1 Minggu","Rp23.000"],["Semi Private — 1 Bulan","Rp47.000"]]},{"brand":"VIU","items":[["Private — 1 Bulan","Rp7.000"],["Private — 2 Bulan","Rp13.000"],["Private — 3 Bulan","Rp20.000"],["Private — 6 Bulan","Rp27.000"],["Private — 1 Tahun","Rp40.000"]]},{"brand":"DISNEY+","items":[["1 Hari","Rp5.000"],["3 Hari","Rp9.000"],["7 Hari","Rp15.000"],["1 Bulan","Rp30.000"]]},{"brand":"IQIYI","items":[["Sharing Standar — 1 Bulan","Rp8.000"]]},{"brand":"AMAZON PRIME","items":[["1 Bulan","Rp15.000"]]},{"brand":"WETV","items":[["1 Bulan","Rp13.000"],["3 Bulan","Rp25.000"],["1 Tahun","Rp50.000"]]},{"brand":"LOKLOK","items":[["Sharing Basic — 1 Bulan","Rp20.000"],["Sharing Standar — 1 Bulan","Rp27.000"],["Private Basic — 1 Bulan","Rp53.000"],["Private Standar — 1 Bulan","Rp80.000"]]},{"brand":"VIDIO","items":[["Alldev Sharing — 1 Hari","Rp7.000"],["Alldev Sharing — 7 Hari","Rp20.000"],["Alldev Sharing — 1 Bulan","Rp30.000"],["Alldev Private — 1 Hari","Rp10.000"],["Alldev Private — 7 Hari","Rp23.000"],["Alldev Private — 1 Bulan","Rp48.000"],["Mobile Sharing — 1 Hari","Rp7.000"],["Mobile Sharing — 7 Hari","Rp15.000"],["Mobile Sharing — 1 Bulan","Rp25.000"],["Mobile Private — 1 Hari","Rp10.000"],["Mobile Private — 7 Hari","Rp20.000"],["Mobile Private — 1 Bulan","Rp35.000"]]},{"brand":"YOUTUBE","items":[["Famplan — 1 Bulan","Rp8.000"],["Famplan — 3 Bulan","Rp17.000"]]},{"brand":"CANVA","items":[["1 Hari","Rp1.000"],["3 Hari","Rp3.000"],["1 Minggu","Rp5.000"],["1 Bulan","Rp7.000"]]},{"brand":"CAPCUT","items":[["Sharing — 7 Hari","Rp10.000"],["Sharing — 1 Bulan","Rp25.000"],["Private — 7 Hari","Rp20.000"],["Private — 1 Bulan","Rp45.000"]]},{"brand":"CHATGPT","items":[["Sharing 8U — 1 Hari","Rp8.000"],["Sharing 8U — 3 Hari","Rp15.000"],["Sharing 8U — 1 Minggu","Rp25.000"],["Sharing 8U — 1 Bulan","Rp38.000"],["Plan Go — 1 Hari","Rp8.000"],["Plan Go — 3 Hari","Rp13.000"],["Plan Go — 1 Minggu","Rp17.000"],["Plan Go — 1 Bulan","Rp30.000"],["Plan Go Plus — 1 Hari","Rp15.000"],["Plan Go Plus — 7 Hari","Rp26.000"],["Plan Go Plus — 1 Bulan","Rp33.000"]]}];
-    const targetDay=allowedDays[index];
-
-    // Convert JS Sunday=0 to the label.
-    document.getElementById('dadakanDay').textContent='Hari '+dayNames[targetDay];
-    document.getElementById('dadakanProduct').textContent=deal.product;
-    document.getElementById('dadakanOld').textContent=deal.old; document.getElementById('dadakanOld').style.display=deal.old?'inline':'none';
-    document.getElementById('dadakanNew').textContent=deal.price;
-
-    // Only highlight "hari ini" on the chosen day.
-    const isToday=now.getDay()===targetDay;
-    document.getElementById('dadakanTitle').textContent=isToday ? 'Harga Dadakan hari ini!' : 'Harga Dadakan minggu ini';
-    document.getElementById('dadakanDesc').textContent=isToday
-      ? 'Harga spesial sedang berlaku hari ini.'
-      : 'Cek lagi di Hari '+dayNames[targetDay]+' untuk harga spesial.';
-  }
-
-  setupDadakan();
-})();
-</script>
-
-
-<script>
-(function(){
-  const badgeText='💗 SPECIAL PRICE';
-  function addDealLabels(){
-    const dealEl=document.getElementById('dadakanProduct');
-    if(!dealEl) return;
-    const dealName=dealEl.textContent.trim();
-    if(!dealName || dealName==='Produk pilihan') return;
-
-    // Add a badge to product cards whose visible text contains the base product name.
-    const base=dealName.split(' — ')[0].trim().toLowerCase();
-    document.querySelectorAll('.product-card').forEach(card=>{
-      if(card.querySelector('.product-dadakan-badge')) return;
-      if(card.textContent.toLowerCase().includes(base)){
-        const badge=document.createElement('span');
-        badge.className='product-dadakan-badge';
-        badge.textContent=badgeText;
-        const target=card.querySelector('h3,.product-name,.title');
-        if(target) target.parentNode.insertBefore(badge,target);
-        else card.insertBefore(badge,card.firstChild);
-      }
-    });
-  }
-  const s=document.createElement('style');
-  s.textContent='.product-dadakan-badge{display:inline-block;padding:4px 7px;border-radius:999px;background:#e86d91;color:#fff;font-size:8px;font-weight:900;letter-spacing:.5px;margin:0 0 6px}';
-  document.head.appendChild(s);
-  setTimeout(addDealLabels,100);
-})();
-</script>
-
-<script>
-(function(){
-const days=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'], allowed=[1,2,3,4,6,0];
-function wk(d){const x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())),n=x.getUTCDay()||7;x.setUTCDate(x.getUTCDate()+4-n);const y=new Date(Date.UTC(x.getUTCFullYear(),0,1));return x.getUTCFullYear()+'-W'+Math.ceil((((x-y)/86400000)+1)/7)}
-function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
-function render(){const d=new Date(),day=allowed[hash('KARANGEL-'+wk(d))%allowed.length],today=d.getDay()===day;
-document.getElementById('dadakanDay').textContent=days[day];
-document.getElementById('dadakanTitle').textContent=today?'💗 SPECIAL PRICE HARI INI':'💗 SPECIAL PRICE MINGGU INI';
-document.getElementById('dadakanDesc').textContent=today?'Semua harga khusus berlaku hari ini.':'Semua harga khusus berlaku pada Hari '+days[day]+'.';
-document.getElementById('dadakanList').innerHTML=specialPrices.map(g=>'<div class="dadakan-group"><div class="dadakan-brand">'+g.brand+'</div><div class="dadakan-items">'+g.items.map(x=>'<div class="dadakan-item"><span>'+x[0]+'</span><strong>'+x[1]+'</strong></div>').join('')+'</div></div>').join('');
-}
-render();
-})();
-</script></body>
+</body>
 </html>
