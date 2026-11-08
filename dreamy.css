@@ -1,0 +1,57 @@
+/* KARANGEL DREAMY DIGITAL — visual-only skin, 2026 */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500,70,1;9..144,700,70,1&display=swap');
+:root{--ink:#402c54;--muted:#84718f;--pink:#d96d9d;--pink2:#f8bcd6;--lilac:#9d7ad0;--cream:#fffbff;--card:#fff;--line:#eee1f1;--shadow:0 16px 45px rgba(104,67,126,.10);--pink-dark:#a94b79;--pink-light:#fce8f3;--pink-soft:#fff4fb}
+body{font-family:'DM Sans',sans-serif;background:#fffbff;color:var(--ink)}
+.notice{background:#f7eafd!important;color:#79538b!important;border-bottom:1px solid #ead6f2!important}
+nav{background:rgba(255,251,255,.92);border-bottom:1px solid #f1e3f5}
+.brand{font-family:'Fraunces',Georgia,serif;letter-spacing:-1px}.brand i{color:#b75b9d}
+.nav-cart,.admin-login{background:#fff;border:1px solid #eedced;box-shadow:0 5px 15px #8052920b}
+.nav-cta,.btn:not(.secondary),.shop-primary{background:linear-gradient(120deg,#d75c9b,#9673d2)!important;color:#fff!important;border:0!important;border-radius:15px!important;box-shadow:0 12px 25px #b45b9b29!important}
+.shop-hero{position:relative;overflow:hidden;padding:78px 0 72px;background:radial-gradient(circle at 80% 25%,#eed7fa 0,transparent 33%),radial-gradient(circle at 5% 85%,#ffe2ee 0,transparent 36%),linear-gradient(145deg,#fff7fc,#f9f3ff)!important;border-bottom:1px solid #f0e0f2}
+.shop-hero:before{content:'✦';position:absolute;top:36px;right:12%;font-size:58px;color:#d7afe7;animation:kk-twinkle 5s ease-in-out infinite;pointer-events:none}
+.shop-hero:after{content:'✳';position:absolute;bottom:20px;left:5%;font-size:50px;color:#f0b2d2;pointer-events:none}
+.shop-hero-inner{gap:55px}
+.shop-badge{display:inline-flex;padding:10px 16px;border:1px solid #ead7f1;border-radius:99px;background:#fff9;color:#9a5a9d!important;font-size:11px;letter-spacing:1.5px}
+.shop-hero h1{font-family:'Fraunces',Georgia,serif;font-size:clamp(44px,5.4vw,76px);line-height:1.06;letter-spacing:-2.3px;max-width:660px;color:#432d56}
+.shop-hero h1 em{color:#b05eac;font-style:italic}
+.shop-hero p{font-size:15px;line-height:1.8;color:#826d8b;max-width:490px}
+.shop-hero-card{position:relative;min-width:265px;max-width:330px;min-height:255px;border:1px solid #ecd9f2;border-radius:36px;background:linear-gradient(145deg,#fff,#fbe7f4);box-shadow:0 30px 65px #b075ae26;transform:rotate(5deg);display:flex;flex-direction:column;justify-content:center;align-items:center}
+.shop-hero-card:before{content:'✿';position:absolute;top:-34px;right:-22px;color:#e0b0d8;font-size:65px;text-shadow:0 8px 16px #b97da822}
+.shop-hero-card:after{content:'✧ a little digital magic';position:absolute;bottom:20px;color:#a17ca8;font-size:11px;letter-spacing:1px}
+.shop-hero-card span{font-size:60px;filter:drop-shadow(0 10px 12px #d0a5cf66)}
+.shop-hero-card strong{font-family:'Fraunces',Georgia,serif;font-size:27px;color:#653d73}
+.shop-hero-card small{font-size:12px}
+.shop-note{background:transparent}.shop-note-card{border-radius:23px;background:#fff;border:1px solid #f0e2f1;box-shadow:0 12px 30px #986b9b10}
+.simple-order{background:#fffbff}.simple-order-grid>div{background:linear-gradient(145deg,#fff,#fff9ff);border:1px solid #f0e2f3;border-radius:20px;padding:22px;box-shadow:0 8px 20px #9369a20a}
+.simple-order-grid>div:nth-child(2){background:linear-gradient(145deg,#fff,#f8f1ff)}
+.simple-order-grid>div:nth-child(3){background:linear-gradient(145deg,#fff,#fff1f7)}
+.simple-order-grid b{color:#8c4b9d;font-size:13px}
+.catalog{background:#fff!important;padding-top:65px}
+.section-head .kicker,.kicker{color:#b25eac!important}
+.section-head h2,.testi-form h3,.testi-gallery h3,.cart-head h2,.modal-head h2{font-family:'Fraunces',Georgia,serif;color:#4e335d}
+.section-head h2{font-size:clamp(33px,4vw,46px)}
+.filter{border:1px solid #ebdcf0;border-radius:13px;background:#fff;padding:11px 16px;color:#795d87}
+.filter.active{background:#6c477e;color:white;border-color:#6c477e;box-shadow:0 8px 18px #72518224}
+.search{border:1px solid #e9dced;border-radius:14px;background:#fff}
+.product-grid{gap:20px}
+.product{border:1px solid #f0e3f1;border-radius:24px;background:#fff;min-height:255px;box-shadow:0 5px 17px #8c63910b;transition:transform .2s,box-shadow .2s,border-color .2s}
+.product:hover{transform:translateY(-5px);box-shadow:0 19px 39px #966b9d1c;border-color:#d9b8e7}
+.product-logo{background:linear-gradient(145deg,#fff0f8,#f3eafa);border:1px solid #eddaef;border-radius:17px}
+.tag{background:#f5edfc;color:#8c60b7;border-radius:10px}
+.product h3{color:#4b315c}
+.order{color:#ac5b9d;border-color:#f0e2f1}
+.order b{background:#f9eaf5;color:#ac5b9d}
+.testimonials{background:linear-gradient(180deg,#fff,#fdf6ff)}
+.testi-form{border-radius:25px;border:1px solid #edd9f1;background:linear-gradient(145deg,#fff,#f8efff);box-shadow:0 14px 34px #946aa012}
+.chat-bubble{background:#fff;border:1px solid #efdfef;border-radius:8px 22px 22px 22px}
+.avatar{background:linear-gradient(135deg,#ffcee1,#c6acef)}
+.field input,.field select,.field textarea{border:1px solid #eadced;border-radius:13px}
+.modal-card{background:#fffaff;border-radius:27px}.modal-head{background:#fffaff}.option.selected{border-color:#c273b7;background:#fff2fa;box-shadow:0 0 0 2px #c273b722}
+.cart-fab{background:linear-gradient(135deg,#b760a8,#7c5aa7)!important;box-shadow:0 12px 28px #925b9b55}.cart-count,.nav-cart span{background:#d96d9d!important}
+footer{background:#3e2b50!important}footer .brand{color:white}
+.mobile-order{background:linear-gradient(135deg,#d75c9b,#9673d2)}
+@keyframes kk-twinkle{50%{opacity:.45;transform:rotate(20deg) scale(.88)}}
+@media(max-width:900px){.shop-hero{padding:55px 0}.shop-hero-card{transform:rotate(2deg)}}
+@media(max-width:700px){.shop-hero{padding:43px 0 40px}.shop-hero h1{font-size:clamp(42px,11vw,60px)}.shop-hero-card{min-width:0;max-width:none;min-height:170px;margin-top:28px;transform:none}.shop-hero-card span{font-size:38px}.shop-hero-card strong{font-size:22px}.shop-hero-card:before{right:8px;top:-28px;font-size:43px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product{min-height:225px;padding:13px}.product h3{font-size:14px}.product p{font-size:11px}.product-logo{width:47px;height:47px}.tag{font-size:8px}.tools{gap:15px}.filter{padding:9px 12px;font-size:12px}.shop-hero:before{right:7%;font-size:35px}}
+@media(max-width:380px){.product-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.shop-hero:before{animation:none}.product{transition:none}}
