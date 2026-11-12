@@ -118,7 +118,7 @@ if(kind==='theme'){
 }
 if(kind==='owner'){
  if(ownerLoggedIn){openModal('settings');return}
- html=header('🎀 Owner Access')+`<div class="owner-login"><div class="owner-intro">🐹🔒<h3>Halo, Owner Karangel!</h3><p>Masuk dengan email dan password owner Karangel yang telah diaktifkan di Supabase.</p></div><div class="adminwarn">Akses hanya untuk owner terdaftar. Setelah database dikonfigurasi, perubahan harga tersimpan online dan terlihat oleh semua pembeli.</div><form onsubmit="event.preventDefault();ownerSignIn()"><div class="field"><label>Email owner</label><input id="ownerEmailInput" type="email" autocomplete="username" required placeholder="email@contoh.com"></div><div class="field"><label>Password owner</label><input id="ownerPasswordInput" type="password" autocomplete="current-password" required placeholder="Password"></div><div id="ownerError" class="owner-error" role="alert"></div><button class="primary wide" type="submit" id="ownerSignBtn">Masuk sebagai owner ♡</button></form><p class="hint" style="text-align:center">Jangan pernah memasukkan kata sandi di kode HTML.</p></div>`;
+ html=header('🎀 Owner Access')+`<div class="owner-login"><div class="owner-intro">🐹🔒<h3>Halo, Owner Karangel!</h3><p>Masuk dengan email dan password owner Karangel yang telah diaktifkan di Supabase.</p></div><div class="adminwarn">Masuk dengan email dan password Owner Karangel yang telah diaktifkan ♡</div><form onsubmit="event.preventDefault();ownerSignIn()"><div class="field"><label>Email owner</label><input id="ownerEmailInput" type="email" autocomplete="username" required placeholder="email@contoh.com"></div><div class="field"><label>Password owner</label><input id="ownerPasswordInput" type="password" autocomplete="current-password" required placeholder="Password"></div><div id="ownerError" class="owner-error" role="alert"></div><button class="primary wide" type="submit" id="ownerSignBtn">Masuk sebagai owner ♡</button></form><p class="hint" style="text-align:center">Jangan pernah memasukkan kata sandi di kode HTML.</p></div>`;
 }
 if(kind==='product'){
  const p=products.find(x=>x.id===selectedProduct);if(!p)return;
@@ -171,7 +171,7 @@ function choosePack(i,el){selectedPack=i;const p=products.find(x=>x.id===selecte
 // KARANGEL ONLINE OWNER LOGIN + LIVE CATALOG
 // Isikan URL dan publishable (anon) key dari project Supabase MILIKMU.
 // Jangan pernah tempel service_role / secret key dalam website.
-const OWNER_AUTH_URL='njhecxxfqthphjqjblfn';
+const OWNER_AUTH_URL='https://nihecxxfgthphigiblfn.supabase.co';
 const OWNER_ANON_KEY='sb_publishable_td1wlTZaU0lP5t7oPhJeXg_HZ6CJaCv';
 const hasCloudConfig=()=>OWNER_AUTH_URL.startsWith('https://') && OWNER_ANON_KEY!=='PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY';
 let ownerLoggedIn=false,ownerClient=null,cloudReady=false;
