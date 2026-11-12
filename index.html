@@ -118,7 +118,7 @@ if(kind==='theme'){
 }
 if(kind==='owner'){
  if(ownerLoggedIn){openModal('settings');return}
- html=header('🎀 Owner Access')+`<div class="owner-login"><div class="owner-intro">🐹🔒<h3>Halo, Owner Karangel!</h3><p>Masuk dengan email dan password owner Karangel yang telah diaktifkan di Supabase.</p></div><div class="adminwarn">Masuk dengan email dan password Owner Karangel yang telah diaktifkan ♡</div><form onsubmit="event.preventDefault();ownerSignIn()"><div class="field"><label>Email owner</label><input id="ownerEmailInput" type="email" autocomplete="username" required placeholder="email@contoh.com"></div><div class="field"><label>Password owner</label><input id="ownerPasswordInput" type="password" autocomplete="current-password" required placeholder="Password"></div><div id="ownerError" class="owner-error" role="alert"></div><button class="primary wide" type="submit" id="ownerSignBtn">Masuk sebagai owner ♡</button></form><p class="hint" style="text-align:center">Jangan pernah memasukkan kata sandi di kode HTML.</p></div>`;
+ html=header('🎀 Owner Access')+`<div class="owner-login"><div class="owner-intro">🐹🔒<h3>Halo, Owner Karangel!</h3></div><div class="adminwarn">Masuk dengan email dan password Owner Karangel yang telah diaktifkan ♡</div><form onsubmit="event.preventDefault();ownerSignIn()"><div class="field"><label>Email owner</label><input id="ownerEmailInput" type="email" autocomplete="username" required placeholder="email@contoh.com"></div><div class="field"><label>Password owner</label><input id="ownerPasswordInput" type="password" autocomplete="current-password" required placeholder="Password"></div><div id="ownerError" class="owner-error" role="alert"></div><button class="primary wide" type="submit" id="ownerSignBtn">Masuk sebagai owner ♡</button></form><p class="hint" style="text-align:center">Jangan pernah memasukkan kata sandi di kode HTML.</p></div>`;
 }
 if(kind==='product'){
  const p=products.find(x=>x.id===selectedProduct);if(!p)return;
@@ -171,7 +171,7 @@ function choosePack(i,el){selectedPack=i;const p=products.find(x=>x.id===selecte
 // KARANGEL ONLINE OWNER LOGIN + LIVE CATALOG
 // Isikan URL dan publishable (anon) key dari project Supabase MILIKMU.
 // Jangan pernah tempel service_role / secret key dalam website.
-const OWNER_AUTH_URL='https://njhecxxfqthphjqjblfn.supabase.co/rest/v1/';
+const OWNER_AUTH_URL='https://njhecxxfqthphjqjblfn.supabase.co';
 const OWNER_ANON_KEY='sb_publishable_td1wlTZaU0lP5t7oPhJeXg_HZ6CJaCv';
 const hasCloudConfig=()=>OWNER_AUTH_URL.startsWith('https://') && OWNER_ANON_KEY!=='PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY';
 let ownerLoggedIn=false,ownerClient=null,cloudReady=false;
@@ -318,8 +318,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});rende
   <div class="kmusic-header"><div class="kmusic-mascot" aria-hidden="true">🐹🎧</div><div><b>Karangel's Cozy Radio ♡</b><small>happy beats for cuties 🎀</small></div><button type="button" class="kmusic-min" id="kmusicMin" aria-label="Minimalkan pemutar musik">−</button></div>
   <div class="kmusic-content"><div class="kmusic-trackname" id="kmusicTrack">Capy's Bubble Pop</div><div class="kmusic-caption" id="kmusicCaption">Original instrumental • 1 / 4</div><label for="kmusicPlaylist" class="kmusic-playlist-label">🎀 Pilih lagu favorit</label><select id="kmusicPlaylist" class="kmusic-playlist" aria-label="Pilih lagu Karangel"></select>
    <div class="kmusic-controls"><button type="button" id="kmusicPrev" aria-label="Lagu sebelumnya">⏮</button><button type="button" id="kmusicToggle" aria-label="Putar musik">▶</button><button type="button" id="kmusicNext" aria-label="Lagu berikutnya">⏭</button></div>
-   <label class="kmusic-volume">🔉 Volume <input type="range" id="kmusicVolume" min="0" max="100" value="35" aria-label="Volume musik"></label>
-   <p class="kmusic-note">Tap ▶ untuk mulai • 4 lagu instrumental original ♡</p>
+   <label class="kmusic-volume">🔉 Volume <input type="range" id="kmusicVolume" min="0" max="100" value="75" aria-label="Volume musik"></label>
+   <p class="kmusic-note">Tap ▶ untuk mulai • musik original lebih jelas ♡</p>
   </div>
  </div>
  <button type="button" class="kmusic-float" id="kmusicExpand" aria-label="Buka pemutar musik">🐹🎵 Cozy Radio ♡</button>
@@ -336,22 +336,22 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});rende
  const select=document.getElementById('kmusicPlaylist');
  // Original short compositions. No copyrighted recording or external music needed.
  const tracks=[
-  {name:'Capy’s Bubble Pop',bpm:132,progression:['C','Am','F','G'],melody:[['E5',.5],['G5',.5],['A5',1],['G5',.5],['E5',.5],['C5',1],['E5',.5],['G5',.5],['C6',1],['B5',.5],['A5',.5],['G5',1],['A5',.5],['G5',.5],['E5',1],['D5',.5],['E5',.5],['G5',1],['E5',.5],['D5',.5],['C5',2]]},
-  {name:'Strawberry Dance',bpm:124,progression:['F','G','Em','Am'],melody:[['A4',.5],['C5',.5],['F5',1],['E5',.5],['F5',.5],['A5',1],['G5',.5],['B5',.5],['D6',1],['B5',.5],['G5',.5],['E5',1],['G5',.5],['E5',.5],['B4',1],['C5',.5],['E5',.5],['A5',1],['G5',.5],['E5',.5],['A4',2]]},
-  {name:'Ribbon Arcade',bpm:144,progression:['Am','F','C','G'],melody:[['A4',.5],['C5',.5],['E5',.5],['A5',.5],['G5',.5],['E5',.5],['C5',1],['A4',.5],['C5',.5],['F5',.5],['A5',.5],['C6',1],['A5',1],['G5',.5],['E5',.5],['C5',.5],['E5',.5],['G5',.5],['B5',.5],['D6',1],['B5',1]]},
-  {name:'Peachy Sunshine',bpm:118,progression:['C','F','Dm','G'],melody:[['C5',.5],['E5',.5],['G5',1],['A5',.5],['G5',.5],['E5',1],['F5',.5],['A5',.5],['C6',1],['A5',.5],['G5',.5],['F5',1],['D5',.5],['F5',.5],['A5',1],['B5',.5],['A5',.5],['G5',1],['E5',.5],['D5',.5],['C5',2]]}
+  {name:'Capy Candy Walk',bpm:116,progression:['C','G','Am','F'],melody:[['E5',0.5],['G5',0.5],['A5',1],['G5',0.5],['E5',0.5],['C5',1],['D5',0.5],['G5',0.5],['B5',1],['A5',0.5],['G5',0.5],['D5',1],['E5',0.5],['A5',0.5],['C6',1],['B5',0.5],['A5',0.5],['E5',1],['F5',0.5],['A5',0.5],['G5',1],['E5',0.5],['D5',0.5],['C5',1]]},
+  {name:'Strawberry Picnic',bpm:108,progression:['F','C','Dm','G'],melody:[['A4',0.5],['C5',0.5],['F5',1],['E5',0.5],['C5',0.5],['A4',1],['G4',0.5],['C5',0.5],['E5',1],['G5',0.5],['E5',0.5],['C5',1],['A4',0.5],['D5',0.5],['F5',1],['E5',0.5],['D5',0.5],['A4',1],['B4',0.5],['D5',0.5],['G5',1],['F5',0.5],['D5',0.5],['G4',1]]},
+  {name:'Ribbon Hop',bpm:128,progression:['Am','F','C','G'],melody:[['A4',0.5],['C5',0.5],['E5',1],['G5',0.5],['E5',0.5],['C5',1],['A4',0.5],['C5',0.5],['F5',1],['A5',0.5],['F5',0.5],['C5',1],['G4',0.5],['C5',0.5],['E5',1],['G5',0.5],['E5',0.5],['C5',1],['B4',0.5],['D5',0.5],['G5',1],['A5',0.5],['G5',0.5],['D5',1]]},
+  {name:'Peachy Afternoon',bpm:102,progression:['C','Em','F','G'],melody:[['G4',0.5],['C5',0.5],['E5',1],['G5',0.5],['E5',0.5],['C5',1],['G4',0.5],['B4',0.5],['E5',1],['G5',0.5],['E5',0.5],['B4',1],['A4',0.5],['C5',0.5],['F5',1],['A5',0.5],['G5',0.5],['F5',1],['B4',0.5],['D5',0.5],['G5',1],['F5',0.5],['D5',0.5],['C5',1]]}
  ];
  const chords={C:['C4','E4','G4'],Am:['A3','C4','E4'],F:['F3','A3','C4'],G:['G3','B3','D4'],Em:['E3','G3','B3'],Dm:['D3','F3','A3']};
  const bassRoots={C:'C3',Am:'A2',F:'F2',G:'G2',Em:'E2',Dm:'D2'};
  const noteFreq=n=>{const m=/^([A-G])([#b]?)(\d)$/.exec(n);if(!m)return 440;const vals={C:0,D:2,E:4,F:5,G:7,A:9,B:11};return 440*2**((12*(Number(m[3])+1)+vals[m[1]]+(m[2]==='#'?1:m[2]==='b'?-1:0)-69)/12)};
  let ctx=null,master=null,playing=false,trackIndex=0,scheduled=[],interval=null,loopStart=0,beatIndex=0,phraseIndex=0;
  const beatsPerLoop=16;
- function init(){if(!AudioClass)return false;if(!ctx){ctx=new AudioClass();master=ctx.createGain();master.gain.value=Number(volume.value)/100*.15;master.connect(ctx.destination)}return true}
- function sound(n,t,d,kind='triangle',level=.2){if(!ctx)return;const osc=ctx.createOscillator(),g=ctx.createGain();osc.type=kind;osc.frequency.value=noteFreq(n);osc.connect(g);g.connect(master);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(level,t+.014);g.gain.exponentialRampToValueAtTime(.0001,t+Math.max(.06,d*.9));osc.start(t);osc.stop(t+Math.max(.09,d));scheduled.push(osc)}
- function drum(t,kind){if(!ctx)return;const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type=kind==='kick'?'sine':'triangle';osc.frequency.setValueAtTime(kind==='kick'?110:260,t);osc.frequency.exponentialRampToValueAtTime(kind==='kick'?48:90,t+.075);gain.gain.setValueAtTime(.0001,t);gain.gain.exponentialRampToValueAtTime(kind==='kick'?.19:.055,t+.008);gain.gain.exponentialRampToValueAtTime(.0001,t+.1);osc.connect(gain);gain.connect(master);osc.start(t);osc.stop(t+.12);scheduled.push(osc)}
+ function init(){if(!AudioClass)return false;if(!ctx){ctx=new AudioClass();master=ctx.createGain();const limiter=ctx.createDynamicsCompressor();limiter.threshold.value=-16;limiter.knee.value=12;limiter.ratio.value=5;limiter.attack.value=.005;limiter.release.value=.16;master.gain.value=Number(volume.value)/100*.85;master.connect(limiter);limiter.connect(ctx.destination)}return true}
+ function sound(n,t,d,kind='triangle',level=.2){if(!ctx)return;const osc=ctx.createOscillator(),g=ctx.createGain();osc.type=kind;osc.frequency.value=noteFreq(n);osc.connect(g);g.connect(master);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(level,t+.009);g.gain.exponentialRampToValueAtTime(.0001,t+Math.max(.06,d*.9));osc.start(t);osc.stop(t+Math.max(.09,d));scheduled.push(osc)}
+ function drum(t,kind){if(!ctx)return;const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type=kind==='kick'?'sine':'triangle';osc.frequency.setValueAtTime(kind==='kick'?110:260,t);osc.frequency.exponentialRampToValueAtTime(kind==='kick'?48:90,t+.075);gain.gain.setValueAtTime(.0001,t);gain.gain.exponentialRampToValueAtTime(kind==='kick'?.17:.038,t+.008);gain.gain.exponentialRampToValueAtTime(.0001,t+.1);osc.connect(gain);gain.connect(master);osc.start(t);osc.stop(t+.12);scheduled.push(osc)}
  function clearVoices(){scheduled.forEach(osc=>{try{osc.stop()}catch(e){}});scheduled=[]}
- function scheduleLoop(){if(!playing||!ctx)return;const song=tracks[trackIndex],beat=60/song.bpm;while(loopStart<ctx.currentTime+.35){let t=loopStart;let pos=0;for(const [n,b] of song.melody){if(pos>=16)break;sound(n,t+pos*beat,b*beat,'square',.065);pos+=b}for(let i=0;i<16;i++){const tm=t+i*beat;if(i%4===0){const ch=song.progression[Math.floor(i/4)];sound(bassRoots[ch],tm,beat*.68,'sine',.2);for(const cn of chords[ch])sound(cn,tm,beat*2.3,'triangle',.047)}if(i%4===0||i%4===2)drum(tm,i%4===0?'kick':'snare');if(i%2===1)drum(tm,'hat')}loopStart+=16*beat;}}
- function refresh(){title.textContent=tracks[trackIndex].name;info.textContent='Fun original beats • '+(trackIndex+1)+' / '+tracks.length;toggle.textContent=playing?'❚❚':'▶';toggle.setAttribute('aria-label',playing?'Jeda musik':'Putar musik');wrap.classList.toggle('playing',playing);select.value=String(trackIndex)}
+ function scheduleLoop(){if(!playing||!ctx)return;const song=tracks[trackIndex],beat=60/song.bpm;while(loopStart<ctx.currentTime+.35){let t=loopStart;let pos=0;for(const [n,b] of song.melody){if(pos>=16)break;sound(n,t+pos*beat,b*beat*.94,'triangle',.19);pos+=b}for(let i=0;i<16;i++){const tm=t+i*beat;if(i%4===0){const ch=song.progression[Math.floor(i/4)];sound(bassRoots[ch],tm,beat*.82,'sine',.26);for(const cn of chords[ch])sound(cn,tm,beat*2.2,'sine',.062)}if(i%4===0||i%4===2)drum(tm,i%4===0?'kick':'snare');if(i%2===1)drum(tm,'hat')}loopStart+=16*beat;}}
+ function refresh(){title.textContent=tracks[trackIndex].name;info.textContent='Happy cozy tunes • '+(trackIndex+1)+' / '+tracks.length;toggle.textContent=playing?'❚❚':'▶';toggle.setAttribute('aria-label',playing?'Jeda musik':'Putar musik');wrap.classList.toggle('playing',playing);select.value=String(trackIndex)}
  async function start(){if(!init()){info.textContent='Browser tidak mendukung audio';return}await ctx.resume();playing=true;clearVoices();loopStart=ctx.currentTime+.05;clearInterval(interval);scheduleLoop();interval=setInterval(scheduleLoop,180);refresh()}
  function pause(){playing=false;clearInterval(interval);interval=null;clearVoices();refresh()}
  function change(i){trackIndex=(i+tracks.length)%tracks.length;if(playing)start().catch(()=>{info.textContent='Musik tidak dapat dimainkan'});else refresh()}
@@ -360,7 +360,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});rende
  toggle.addEventListener('click',()=>playing?pause():start().catch(()=>{info.textContent='Musik tidak dapat dimainkan'}));
  document.getElementById('kmusicNext').addEventListener('click',()=>change(trackIndex+1));
  document.getElementById('kmusicPrev').addEventListener('click',()=>change(trackIndex-1));
- volume.addEventListener('input',()=>{if(master&&ctx)master.gain.setTargetAtTime(Number(volume.value)/100*.15,ctx.currentTime,.025)});
+ volume.addEventListener('input',()=>{if(master&&ctx)master.gain.setTargetAtTime(Number(volume.value)/100*.85,ctx.currentTime,.025)});
  document.getElementById('kmusicExpand').addEventListener('click',()=>wrap.classList.remove('collapsed'));
  document.getElementById('kmusicMin').addEventListener('click',()=>wrap.classList.add('collapsed'));
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)pause()});
